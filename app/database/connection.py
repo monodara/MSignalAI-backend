@@ -1,8 +1,14 @@
 import aiosqlite
+import os
 from app.config.settings import SQLITE_DB_FILE
 
+if os.environ.get("K_SERVICE"):  
+    DB_PATH = "/tmp/database.db"
+else:
+    DB_PATH = SQLITE_DB_FILE
+
 async def get_db():
-    async with aiosqlite.connect(SQLITE_DB_FILE) as db:
+    async with aiosqlite.connect(DB_PATH) as db:
         yield db
 
 async def create_stock_price_table():

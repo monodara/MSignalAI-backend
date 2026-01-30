@@ -14,6 +14,7 @@ SQLITE_DB_FILE = "./app/database/test.db" # Using a relative path for simplicity
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+REDIS_PASSWORD=os.getenv("REDIS_PASSWORD", None)
 REDIS_DB = int(os.getenv("REDIS_DB", 0))
 
 CORS_ORIGINS = [
